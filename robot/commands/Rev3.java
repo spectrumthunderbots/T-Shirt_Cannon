@@ -13,20 +13,20 @@ import frc.robot.Robot;
 /**
  * Add your docs here.
  */
-public class Rev1 extends InstantCommand {
+public class Rev3 extends InstantCommand {
   /**
    * Add your docs here.
    */
-  public Rev1() {
+  public Rev3() {
     super();
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.sol1);
+    requires(Robot.sol3);
   }
 
   // Called once when the command executes
   @Override
   protected void initialize() {
-    Robot.sol1.Rev();
+    Robot.sol3.Rev();
   }
 
 }

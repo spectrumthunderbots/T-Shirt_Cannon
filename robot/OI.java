@@ -10,9 +10,13 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.For1;
-import frc.robot.commands.Off1;
-import frc.robot.commands.Rev1;
+import frc.robot.commands.For2;
+import frc.robot.commands.For3;
+//import frc.robot.commands.Off1;
+import frc.robot.commands.Reset;
+//import frc.robot.commands.Rev1;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -22,27 +26,28 @@ public class OI {
 
   public Joystick stick = new Joystick(RobotMap.controller);
 
-  Button For1 = new JoystickButton(stick, RobotMap.button_X);
-  Button For2 = new JoystickButton(stick, RobotMap.button_A);
-  Button For3 = new JoystickButton(stick, RobotMap.button_B);
+  Button fire1 = new JoystickButton(stick, RobotMap.button_X);
+  Button fire2 = new JoystickButton(stick, RobotMap.button_A);
+  Button fire3 = new JoystickButton(stick, RobotMap.button_B);
+  
+  Button off1 = new JoystickButton(stick, RobotMap.button_Back);
 
-  Button Rev = new JoystickButton(stick, RobotMap.button_Back);
+  Button tog = new JoystickButton(stick, RobotMap.button_Start);
 
   public OI() {
 
-    For1.whenPressed(new For1());
-    For2.whenPressed(new For2());
-    For3.whenPressed(new For2());
-
-    Rev.whenPressed(new Rev1());
+    fire1.whenPressed(new For1());
+    fire2.whenPressed(new For2());
+    fire3.whenPressed(new For3());
+    off1.whenPressed(new Reset());
 
     /*claw_In.whileHeld(new ());
     claw_Out.whileHeld(new Claw_Out());
 
     lift_Up.whileHeld(new Lift_Up());
-    lift_Down.whileHeld(new Lift_Down());
+    lift_Down.whileHeld(new Lift_Down());*/
 
-    tog.toggleWhenPressed(new ArcadeDrive());*/
+    tog.toggleWhenPressed(new ArcadeDrive());
 
   }
   //// CREATING BUTTONS
