@@ -15,14 +15,14 @@ import frc.robot.commands.Off1;
 /**
  * Add your docs here.
  */
-public class sol1 extends Subsystem {
+public class sol2 extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
   DoubleSolenoid piston = null;
 
-  public sol1() {
-    piston = new DoubleSolenoid(0, 1);
+  public sol2() {
+    piston = new DoubleSolenoid(2, 3);
   }
 
   public void For() {

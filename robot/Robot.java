@@ -13,9 +13,12 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.subsystems.Drive_Train;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.comp;
 import frc.robot.subsystems.sol1;
+import frc.robot.subsystems.sol2;
+import frc.robot.subsystems.sol3;
 
 
 /**
@@ -27,11 +30,15 @@ import frc.robot.subsystems.sol1;
  */
 public class Robot extends TimedRobot {
 
+  public static Drive_Train driveTrain = null;
+
   public static comp comp = null;
   public static sol1 sol1 = null;
+  public static sol2 sol2 = null;
+  public static sol3 sol3 = null;
 
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
-  public static OI m_oi;
+  public static OI oi;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -43,10 +50,14 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
 
+    driveTrain = new Drive_Train();
+
     comp = new comp();
     sol1 = new sol1();
+    sol2 = new sol2();
+    sol3 = new sol3();
 
-    m_oi = new OI();
+    oi = new OI();
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
