@@ -22,21 +22,19 @@ public class OI {
 
   public Joystick stick = new Joystick(RobotMap.controller);
 
-  Button fire1 = new JoystickButton(stick, RobotMap.button_Start);
-  Button off1 = new JoystickButton(stick, RobotMap.button_Back);
+  Button For1 = new JoystickButton(stick, RobotMap.button_X);
+  Button For2 = new JoystickButton(stick, RobotMap.button_A);
+  Button For3 = new JoystickButton(stick, RobotMap.button_B);
 
-  Button claw_In = new JoystickButton(stick, RobotMap.button_RightBumper);
-  Button claw_Out = new JoystickButton(stick, RobotMap.button_LeftBumper);
-
-  Button lift_Up = new JoystickButton(stick, RobotMap.button_Y);
-  Button lift_Down = new JoystickButton(stick, RobotMap.button_A);
-
-  Button tog = new JoystickButton(stick, RobotMap.button_B);
+  Button Rev = new JoystickButton(stick, RobotMap.button_Back);
 
   public OI() {
 
-    fire1.whenPressed(new For1());
-    off1.whenPressed(new Rev1());
+    For1.whenPressed(new For1());
+    For2.whenPressed(new For2());
+    For3.whenPressed(new For2());
+
+    Rev.whenPressed(new Rev1());
 
     /*claw_In.whileHeld(new ());
     claw_Out.whileHeld(new Claw_Out());
